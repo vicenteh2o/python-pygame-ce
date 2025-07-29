@@ -2,19 +2,34 @@ import pygame
 import time
 import random
 
-WIDTH, HEIGHT = 1000, 800
+from constantes import *
+
 WIN = pygame.display.set_mode((WIDTH, HEIGHT))
 pygame.display.set_caption("Space Dodge")
+
+BG_IMAGE = pygame.image.load("bg.jpg")
+BG = pygame.transform.scale(BG_IMAGE, (WIDTH, HEIGHT))
+
+
+def draw(player):
+    WIN.blit(BG, (0, 0))
+    pygame.draw.rect(WIN, "#ff4500", player)
+    pygame.display.update()
 
 
 def main():
     run = True
+
+    player = pygame.Rect(200, HEIGHT - PLAYER_HEIGHT,
+                         PLAYER_WIDTH, PLAYER_HEIGHT)
 
     while run:
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 run = False
                 break
+
+        draw(player)
 
     pygame.quit()
 
