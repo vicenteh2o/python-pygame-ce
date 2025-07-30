@@ -34,9 +34,9 @@ def main():
                 break
 
         keys = pygame.key.get_pressed()
-        if keys[pygame.K_a]:
+        if keys[pygame.K_a] and player.x - PLAYER_VEL >= 0:
             player.x -= PLAYER_VEL
-        if keys[pygame.K_d]:
+        if keys[pygame.K_d] and player.x + player.width + PLAYER_VEL <= WIDTH:
             player.x += PLAYER_VEL
 
         draw(player)
