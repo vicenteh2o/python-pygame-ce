@@ -1,8 +1,14 @@
 import pygame
+import OS
 from const import *
 
 WIN = pygame.display.set_mode((WIDTH, HEIGHT))
 pygame.display.set_caption("Galaxy Fighters")
+
+YELLOW_SPACESHIP_IMAGE = pygame.image.load(
+    OS.path.join('Assets', 'spaceship_yellow.png'))
+RED_SPACESHIP_IMAGE = pygame.image.load(
+    OS.path.join('Assets', 'spaceship_red.png'))
 
 
 def draw_window():
